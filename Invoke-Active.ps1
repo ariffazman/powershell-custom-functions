@@ -4,7 +4,7 @@ $WShell = New-Object -com 'Wscript.Shell'
 
 while ($true) {
   $WShell.sendkeys('{SCROLLLOCK}')
-  Start-Sleep -Milliseconds 100
+  Start-Sleep -Milliseconds 10
   $WShell.sendkeys('{SCROLLLOCK}')
-  Start-Sleep -Seconds 240
+  Start-Sleep -Milliseconds 10
 }

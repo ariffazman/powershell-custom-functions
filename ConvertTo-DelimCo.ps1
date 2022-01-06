@@ -1,14 +1,14 @@
 param (
-  [array]$array,
-  [Switch]$SingleQuote
+    [Parameter(Mandatory)]
+    [array]$Array,
+    [switch]$SingleQuote
 )
 
 if ($SingleQuote) {
-  $convertedArray = "'$($array -join "','")'"
+  $convertedArray = "'$($Array -join "','")'"
 }
 else {
-  $convertedArray = '"{0}"' -f ($array -join '","')
-
+  $convertedArray = '"{0}"' -f ($Array -join '","')
 }
 
 $convertedArray

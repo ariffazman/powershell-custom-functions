@@ -1,8 +1,11 @@
 param (
-  [string]$name
+  [Parameter(Mandatory)]
+  [string]$FileName
 )
 
-Get-ChildItem -Recurse -Filter "*${name}*" -ErrorAction SilentlyContinue | ForEach-Object {
-  $place_path = $_.directory
-  Write-Output "${place_path}\${_}"
+Write-Verbose -Message "Finding file matching $FileName" -Verbose
+
+Get-ChildItem -Recurse -Filter "*$FileName*" -ErrorAction SilentlyContinue | ForEach-Object {
+  $directory = $_.directory
+  Write-Output "$directory\$_"
 }
